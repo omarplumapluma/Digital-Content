@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block toggle_login %}{% endblock %}
+
+
+{% block content %}
+<div class="wrapper">
+	<div class="col-sm-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" style="margin-bottom: 0px;">
+		<div class="wrapper">
+			<div class="content form-login">
+				<h1>LOGIN</h1>
+				<form action="{% url "digital_login" %}" method="post" accept-charset="utf-8" class"form-login">
+				    {{ form|crispy }}
+				    {% csrf_token %}
+				    <input type="hidden" name="next" value="{{ next }}">
+				    <input class="btn btn-primary" type="submit" value="Iniciar sesión">
+				    <a href="{% url 'index' %}" class="btn btn-danger">Cancelar</a>
+				</form>
+			</div>
+			<ul class="bg-bubbles">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>-
+</div>
+{% endblock %}

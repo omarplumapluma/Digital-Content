@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Información de la compañia</title>
+{% endblock title %}
+
+{% block content %}
+{% include '../../theme_base/templates/menu.html' %}
+<div class="container">
+    <div class="col-sm-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+    	<center><h2>{{company.name}}</h2></center>
+    	<h2>RFC: {{company.rfc}}</h2>
+    	<h2>Calle: {{company.street}}</h2>
+    	<h2>Colonia: {{company.colony}}</h2>
+    	<h2>Ciudad: {{company.city}}</h2>
+    	<h2>Estado: {{company.state}}</h2>
+        <ul class="list-group">
+            {% for contact in contacts %}
+                    <li class="list-group-item">
+                        {{ contact.name_contact }}
+                    </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'companies_list' %}" class="btn btn-primary">Regresar</a>
+        <a href="{% url 'company_update' company.pk %}" class="btn btn-warning">Editar</a>
+        <a href="{% url 'company_delete' company.pk %}" class="btn btn-danger">Eliminar</a>
+        <a href="{% url 'companies_content_list' %}" class="btn btn-danger">Ver contenido</a>
+    </div>
+</div>
+{% endblock content %}

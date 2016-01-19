@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    <title>Empresa</title>
+{% endblock title %}
+
+{% block content %}
+{% include '../../theme_base/templates/menu.html' %}
+
+<div class="container">
+    <!-- search form -->
+    <div class="col-sm-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+        <section id="pricing">
+          <div class="container">
+            <div class="row">
+              <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+                <h2>Bienvenido</h2>
+                <h3>¿Que es lo que te gustaría hacer?</h3>
+              </div>
+            </div>
+            <div class="pricing-table">
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="single-table wow featured flipInY" data-wow-duration="1000ms" data-wow-delay="300ms">
+                    <h3>Mi perfil</h3>
+                    <div class="member-image">
+                      <img class="img-responsive" src="{% static 'images/admin/perfil.png' %}" alt="">
+                    </div>
+                    <a href="#" class="btn btn-lg btn-primary">Editar</a>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="single-table wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
+                    <h3>Agregar contenido</h3>
+                    <div class="member-image">
+                      <img class="img-responsive" src="{% static 'images/admin/Icon_multimedia.png' %}" alt="">
+                    </div>
+                    <a href="{% url 'company_content_form' %}" class="btn btn-lg btn-primary">Agregar</a>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="single-table featured wow flipInY" data-wow-duration="1000ms" data-wow-delay="800ms">
+                    <h3>Mis campañas</h3>
+                    <div class="member-image">
+                      <img class="img-responsive" src="{% static 'images/admin/publishing.png' %}" alt="">
+                    </div>
+                    <a href="#" class="btn btn-lg btn-primary">Ver</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><!--/#pricing-->
+
+        {% for company in companies %}
+            <ul class="list-group">
+              <li class="list-group-item">
+                <span class="badge">{{ company.get_contactos_count }}</span>
+                <h4><a href="{{ company.get_company_detail_url }}">{{ company.name }}</a></h4>
+              </li>
+            </ul>
+        {% endfor %}
+        <a href="{% url 'company_form' %}" class="btn btn-primary">Agregar compañia</a>
+    </div>
+</div>
+{% endblock content %}
+

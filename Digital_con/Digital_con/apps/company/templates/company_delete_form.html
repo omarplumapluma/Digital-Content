@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+
+{% block title %}
+    <title>Eliminar Empresa</title>
+{% endblock title %}
+
+{% block content %}
+{% include '../../theme_base/templates/menu.html' %}
+<div class="container">
+	<center><h1>Eliminar Empresa</h1></center>
+	<form method="POST">
+	    <div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+	        {% csrf_token %}
+	        <h3>¿Está seguro de eliminar esta Empresa "{{ object }}"?</h3>
+	        {% buttons %}
+	            <button type="submit" class="btn btn-primary">Eliminar</button>
+	            <a href="{% url 'companies_list' %}" class="btn btn-danger">Cancelar</a>
+	        {% endbuttons %}
+	    </div>
+	</form>
+</div>
+
+{% endblock content %}
