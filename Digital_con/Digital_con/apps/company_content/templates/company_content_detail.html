@@ -8,22 +8,17 @@
 {% include '../../theme_base/templates/menu.html' %}
 <div class="container">
     <div class="col-sm-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-    	<center><h2>{{company.name}}</h2></center>
-    	<h2>RFC: {{company.rfc}}</h2>
-    	<h2>Calle: {{company.street}}</h2>
-    	<h2>Colonia: {{company.colony}}</h2>
-    	<h2>Ciudad: {{company.city}}</h2>
-    	<h2>Estado: {{company.state}}</h2>
-        <ul class="list-group">
-            {% for contact in contacts %}
-                    <li class="list-group-item">
-                        {{ contact.name_contact }}
-                    </li>
-            {% endfor %}
-        </ul>
-        <a href="{% url 'companies_list' %}" class="btn btn-primary">Regresar</a>
-        <a href="{% url 'company_update' company.pk %}" class="btn btn-warning">Editar</a>
-        <a href="{% url 'company_delete' company.pk %}" class="btn btn-danger">Eliminar</a>
+    	<center><h2>Compañia: {{contents.company}}</h2></center>
+    	<h2>Campaña: {{contents.campaign}}</h2>
+    	<h2>Descripción: {{contents.description}}</h2>
+        <h2>Fecha inicio: {{contents.start_date}}</h2>
+        <h2>Fecha fin: {{contents.end_date}}</h2>
+        <h2>Marquee: {{contents.marquee}}</h2>
+        <h2>Estatus: {{contents.status}}</h2>
+        
+        <a href="{% url 'company_content_update' contents.pk %}" class="btn btn-primary">Editar</a>
+        <a href="{% url 'companies_content_list' %}" class="btn btn btn-warning">Regresar</a>
+        <a href="{% url 'company_content_delete' contents.pk %}" class="btn btn-danger">Eliminar</a>
     </div>
 </div>
 {% endblock content %}

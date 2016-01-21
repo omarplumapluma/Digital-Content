@@ -14,17 +14,8 @@
     	<h2>Colonia: {{company.colony}}</h2>
     	<h2>Ciudad: {{company.city}}</h2>
     	<h2>Estado: {{company.state}}</h2>
-        <ul class="list-group">
-            {% for contact in contacts %}
-                    <li class="list-group-item">
-                        {{ contact.name_contact }}
-                    </li>
-            {% endfor %}
-        </ul>
-        <a href="{% url 'companies_list' %}" class="btn btn-primary">Regresar</a>
-        <a href="{% url 'company_update' company.pk %}" class="btn btn-warning">Editar</a>
-        <a href="{% url 'company_delete' company.pk %}" class="btn btn-danger">Eliminar</a>
-        <a href="{% url 'companies_content_list' %}" class="btn btn-danger">Ver contenido</a>
+        <a href="{% url 'company_update' company.pk %}" class="btn btn-primary">Editar</a>
+        <a href="{% url 'companies_list' %}" class="btn btn btn-danger">Regresar</a>
     </div>
 </div>
 {% endblock content %}

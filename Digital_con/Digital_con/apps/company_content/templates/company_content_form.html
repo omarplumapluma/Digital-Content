@@ -3,52 +3,50 @@
 {% load bootstrap3 %}
 
 {% block title %}
-    <title>Agregar contenido</title>
+    <title>Crear Empresa</title>
 {% endblock title %}
 
 {% block content %}
 {% include '../../theme_base/templates/menu.html' %}
 <div class="container">
-	<div class="panel panel-default">
-	  	<div class="panel-heading"><center><h1>Agregar contenido</h1></center></div>
-	  	<div class="panel-body">
-			<form method="POST">
-			 {% csrf_token %}
-			<div class="row">
-			    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-			        <p>{% bootstrap_field form.campaign %}</p>
-			    </div>
-			    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-			        <p>{% bootstrap_field form.description %}</p>
-			    </div>
-			</div>
-			<div class="row">
-			    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-			        <p>{% bootstrap_field form.start_date %}</p>
-			    </div>
-			    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-			        <p>{% bootstrap_field form.end_date %}</p>
-			    </div>
-			</div>
-			<div class="row">
-			    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-			        <p>{% bootstrap_field form.marquee %}</p>
-			    </div>
-			    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-			        <p>{% bootstrap_field form.content %}</p>
-			    </div>
-			</div>
-			</form>
+	<h1>Agregar Campaña</h1>
+	<form method="POST">
+	    {% csrf_token %}
+	        
+        <div class="row">
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.campaign %}</p>
+		    </div>
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.description %}</p>
+		    </div>
 		</div>
-	</div>
-	<div class="row">
-	    <div class="col-sm-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		<div class="row">
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.start_date %}</p>
+		    </div>
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.end_date %}</p>
+		    </div>
+		</div>
+		<div class="row">
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.marquee %}</p>
+		    </div>
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.status %}</p>
+		    </div>
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" style="display: none;">
+		        <p>{% bootstrap_field form.company %}</p>
+		    </div>
+		</div>
+		<div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
 	        {% buttons %}
-	            <button type="submit" class="btn btn-primary">Agregar</button>
+	            <button type="submit" class="btn btn-primary">Crear</button>
 	            <a href="{% url 'companies_list' %}" class="btn btn-danger">Cancelar</a>
 	        {% endbuttons %}
 	    </div>
-	</div>
+	</form>
 </div>
 
 {% endblock content %}

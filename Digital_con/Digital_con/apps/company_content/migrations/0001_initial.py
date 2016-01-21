@@ -19,7 +19,6 @@ class Migration(migrations.Migration):
                 ('description', models.CharField(max_length=100, verbose_name='Descripci\xf3n')),
                 ('start_date', models.DateTimeField(verbose_name=b'Fecha inicio')),
                 ('end_date', models.DateTimeField(verbose_name=b'Fecha fin')),
-                ('content', models.FileField(upload_to=b'content', verbose_name=b'Contenido imagen/video')),
                 ('marquee', models.TextField(verbose_name=b'Marquee')),
                 ('status', models.CharField(max_length=1, choices=[(b'a', b'Activo'), (b'i', b'Inactivo')])),
                 ('company', models.ForeignKey(verbose_name='Compa\xf1ia', to='company.Company')),

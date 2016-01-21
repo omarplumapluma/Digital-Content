@@ -35,11 +35,11 @@ ALLOWED_HOSTS = []
 
 DATE_INPUT_FORMATS = ('%d/%m/%Y')
 
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, "media")
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, "site_media", "media")
 
-MEDIA_URL = "/static/media/"
+MEDIA_URL = "/site_media/media/"
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, "static")
+STATIC_ROOT = os.path.join(PROJECT_ROOT, "site_media", "static")
 
 # Application definition
 
@@ -70,6 +70,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -109,7 +110,7 @@ WSGI_APPLICATION = 'Digital_con.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'DC',
+        'NAME': 'dc',
         'USER': 'openerp',
         'PASSWORD': 'OmarP',
         'HOST': 'localhost',

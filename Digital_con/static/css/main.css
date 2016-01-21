@@ -19,9 +19,6 @@ body {
   background-color: #fff;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: #333;
-}
 
 h2 {
   font-size: 30px;
@@ -39,46 +36,10 @@ h3 {
   background-attachment: fixed;
 }
 
-.parallax,
-.parallax h1,
-.parallax h2,
-.parallax h3,
-.parallax h4,
-.parallax h5,
-.parallax h6 {
-  color: #fff;
-}
 
-.parallax input[type="text"],
-.parallax input[type="text"]:hover,
-.parallax input[type="email"],
-.parallax input[type="email"]:hover,
-.parallax input[type="url"],
-.parallax input[type="url"]:hover,
-.parallax input[type="password"],
-.parallax input[type="password"]:hover,
-.parallax textarea,
-.parallax textarea:hover {
-  font-weight: 300;
-  color: #fff;
-}
 
-.btn {
-  border: 0;
-  border-radius: 0;
-}
 
-.btn.btn-primary:hover {
-  background-color: #017fb5;
-}
 
-.navbar-nav li a:hover, 
-.navbar-nav li a:focus {
-  outline:none;
-  outline-offset: 0;
-  text-decoration:none;  
-  background: transparent;
-}
 
 a {
   text-decoration: none;
@@ -233,7 +194,7 @@ section {
 
 .left-control:hover, 
 .right-control:hover {
-  color: #fff;
+  color: #0FA589;
 }
 
 #home-slider:hover .left-control {
@@ -268,8 +229,22 @@ section {
   padding-bottom: 30px;
 }
 
-.navbar-right li.active a {
-  background-color: rgba(0,0,0,.2);
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: #0FA589;
+}
+
+.navbar-right li a:hover {
+    background-color: #1FC5B6;
+    color: #028FCC;
+}
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: #1FC5B6;
+}
+
+.dropdown-menu {
+  background-color: #1FC5B6;
 }
 
 .navbar-brand h1 {
@@ -867,13 +842,7 @@ section {
   padding-top: 95px;
 }
 
-.form-control {
-  background-color: transparent;
-  border-color: rgba(255,255,255,.1);
-  height: 50px;
-  border-radius: 0;
-  box-shadow: none;
-}
+
 
 textarea.form-control {
   min-height: 180px;
@@ -915,7 +884,6 @@ ul.address {
 
 #footer {
   color:#fff;
-  padding-top: 60px;
 }
 
 .footer-top {

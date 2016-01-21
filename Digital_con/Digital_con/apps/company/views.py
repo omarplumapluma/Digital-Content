@@ -8,11 +8,13 @@ from .models import Company, Contact
 @login_required
 def company_listing(request):
     """ All companies. """
-    companies = Company.objects.all()
-    var_get_search = request.GET.get('search_box')
-    if var_get_search is not None:
-        companies = companies.filter(name__icontains=var_get_search)
-    return render(request, 'company_listing.html', {'companies': companies})
+    user = request.user
+    company = Company.objects.filter(user_id=user.id)
+    result = len(company)
+    if result != 0:
+        return render(request, 'company_listing.html', {'companies': company, 'user': user})
+    else:
+        return render(request, 'create_perfil.html', {'user': user})
 
 
 @login_required
@@ -28,22 +30,28 @@ def company_detail(request, pk):
 class CompanyUpdate(UpdateView):
     model = Company
     template_name = 'company_update_form.html'
-    fields = ['name', 'rfc', 'street', 'colony', 'city', 'state', 'user', 'password']
+    fields = ['name', 'rfc', 'street', 'colony', 'city', 'state']
     success_url = reverse_lazy('companies_list')
 
 
 class CompanyDelete(DeleteView):
     model = Company
     template_name = 'company_delete_form.html'
-    fields = ['name', 'rfc', 'street', 'colony', 'city', 'state', 'user', 'password']
+    fields = ['name', 'rfc', 'street', 'colony', 'city', 'state']
     success_url = reverse_lazy('companies_list')
 
 
 class CompanyForm(CreateView):
     template_name = 'company_form.html'
     model = Company
-    fields = ['name', 'rfc', 'street', 'colony', 'city', 'state', 'user', 'password']
+    fields = ['name', 'rfc', 'street', 'colony', 'city', 'state']
     success_url = reverse_lazy('companies_list')
+
+    def get_initial(self):
+        return {
+            'status': 'a',
+            'user': self.request.user,
+        }
 
 
 class ContactForm(CreateView):

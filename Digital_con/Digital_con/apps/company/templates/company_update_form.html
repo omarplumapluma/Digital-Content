@@ -11,9 +11,32 @@
 <div class="container">
 	<h1>Editar Empresa</h1>
 	<form method="POST">
-	    <div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-	        {% csrf_token %}
-	        {% bootstrap_form form %}
+		{% csrf_token %}
+	    <div class="row">
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.name %}</p>
+		    </div>
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.rfc %}</p>
+		    </div>
+		</div>
+		<div class="row">
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.street %}</p>
+		    </div>
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.colony %}</p>
+		    </div>
+		</div>
+		<div class="row">
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.city %}</p>
+		    </div>
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.state %}</p>
+		    </div>
+		</div>
+		<div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
 	        {% buttons %}
 	            <button type="submit" class="btn btn-primary">Actualizar</button>
 	            <a href="{% url 'companies_list' %}" class="btn btn-danger">Cancelar</a>

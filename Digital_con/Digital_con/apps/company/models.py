@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Company(models.Model):
@@ -14,8 +15,7 @@ class Company(models.Model):
     colony = models.CharField(verbose_name="Colonia", max_length=60, null=False)
     city = models.CharField(verbose_name="Ciudad", max_length=30, null=False)
     state = models.CharField(verbose_name="Estado", max_length=30, null=False)
-    user = models.CharField(verbose_name="Usuario", max_length=15, null=False)
-    password = models.CharField(verbose_name="Password", max_length=16, null=False)
+    user = models.ForeignKey(User, null=True)
 
     class Meta:
         ordering = ['name']

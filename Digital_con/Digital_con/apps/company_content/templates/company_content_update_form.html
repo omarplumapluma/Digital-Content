@@ -3,17 +3,44 @@
 {% load bootstrap3 %}
 
 {% block title %}
-    <title>Editar Empresa</title>
+    <title>Editar Campaña</title>
 {% endblock title %}
 
 {% block content %}
 {% include '../../theme_base/templates/menu.html' %}
 <div class="container">
-	<h1>Editar Empresa</h1>
+	<h1>Editar campaña</h1>
 	<form method="POST">
-	    <div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-	        {% csrf_token %}
-	        {% bootstrap_form form %}
+	    {% csrf_token %}
+	        
+        <div class="row">
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.campaign %}</p>
+		    </div>
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.description %}</p>
+		    </div>
+		</div>
+		<div class="row">
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.start_date %}</p>
+		    </div>
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.end_date %}</p>
+		    </div>
+		</div>
+		<div class="row">
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.marquee %}</p>
+		    </div>
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		        <p>{% bootstrap_field form.status %}</p>
+		    </div>
+		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" style="display: none;">
+		        <p>{% bootstrap_field form.company %}</p>
+		    </div>
+		</div>
+		<div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
 	        {% buttons %}
 	            <button type="submit" class="btn btn-primary">Actualizar</button>
 	            <a href="{% url 'companies_list' %}" class="btn btn-danger">Cancelar</a>

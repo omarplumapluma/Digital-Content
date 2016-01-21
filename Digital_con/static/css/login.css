@@ -12,7 +12,7 @@
 }
 
 .control-label, h1{
-  color: #fff;
+  color: #028FCC;
 }
 
 .wrapper.form-success .container h1 {
@@ -33,9 +33,16 @@
   font-weight: 200;
 }
 
-.form-control {
-    display: block;
-    width: 30%;
+.form-login label{
+  color: #fff;
+}
+ 
+.form-login h1{
+  color: #fff;
+}
+
+.form-login input{
+  width: 30%;
 }
 
 form {
@@ -43,13 +50,15 @@ form {
   position: relative;
   z-index: 2;
 }
+
+
 form input {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   outline: 0;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(27, 26, 26, 0.4);
+  background-color: #D4ECE8;
   width: 250px;
   border-radius: 3px;
   padding: 10px 15px;
@@ -57,18 +66,18 @@ form input {
   display: block;
   text-align: center;
   font-size: 18px;
-  color: white;
+  color: #000000;
   -webkit-transition-duration: 0.25s;
           transition-duration: 0.25s;
   font-weight: 300;
 }
 form input:hover {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: #fff;
 }
 form input:focus {
   background-color: white;
   width: 300px;
-  color: #53e3a6;
+  color: #000;
 }
 form button {
   -webkit-appearance: none;

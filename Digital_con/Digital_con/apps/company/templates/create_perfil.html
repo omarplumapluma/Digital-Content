@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    <title>Crear Perfil</title>
+{% endblock title %}
+
+{% block content %}
+{% include '../../theme_base/templates/menu.html' %}
+
+<div class="container">
+    <!-- search form -->
+    <div class="col-sm-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+        <section id="pricing">
+          <div class="container">
+            <div class="row">
+              <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+                <h2>Bienvenido</h2>
+                <h3>¿Nesecitas crear tu perfil para poder agregar contenido?</h3>
+              </div>
+            </div>
+            <div class="pricing-table">
+              <div class="row">
+                <center>
+                <div class="col-sm-5">
+                  <div class="single-table wow featured flipInY" data-wow-duration="1000ms" data-wow-delay="300ms">
+                    <h3>Mi perfil</h3>
+                    <div class="member-image">
+                      <img class="img-responsive" src="{% static 'images/admin/perfil.png' %}" alt="">
+                    </div>
+                    <a href="{% url 'company_form' %}" class="btn btn-primary">Crear perfil</a>
+                  </div>
+                </div>
+              </center>
+            </div>
+          </div>
+        </section><!--/#pricing-->
+        
+    </div>
+</div>
+{% endblock content %}
+
