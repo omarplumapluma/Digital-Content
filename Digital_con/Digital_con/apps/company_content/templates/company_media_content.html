@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    <title>Contenidos</title>
+{% endblock title %}
+
+{% block content %}
+{% include '../../theme_base/templates/menu.html' %}
+
+<div class="container">
+    <!-- search form -->
+    <div class="col-sm-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+        <section id="pricing">
+          <div class="container">
+            <div class="row">
+              <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+                <h2>Administrador de contenido</h2>
+              </div>
+            </div>
+            <div class="pricing-table">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="single-table wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
+                    <h3>Armar campaña</h3>
+                    <div class="member-image">
+                      <img class="img-responsive" src="{% static 'images/admin/spublishing.png' %}" alt="">
+                    </div>
+                    <a href="{% url 'company_campaing_list' %}" class="btn btn-lg btn-primary">Agregar</a>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="single-table featured wow flipInY" data-wow-duration="1000ms" data-wow-delay="800ms">
+                    <h3>Mis contenidos</h3>
+                    <div class="member-image">
+                      <img class="img-responsive" src="{% static 'images/admin/multimedia.png' %}" alt="">
+                    </div>
+                    <a href="{% url 'companies_media_list' %}" class="btn btn-lg btn-primary">Ver</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><!--/#pricing-->
+    </div>
+</div>
+{% endblock content %}
+

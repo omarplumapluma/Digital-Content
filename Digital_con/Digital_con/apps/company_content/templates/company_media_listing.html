@@ -1,26 +1,42 @@
 {% extends "base.html" %}
 
+
 {% block title %}
     <title>Conatenidos</title>
 {% endblock title %}
-
 {% block content %}
 {% include '../../theme_base/templates/menu.html' %}
+{% load endless %}
 
 <div class="container">
     <!-- search form -->
-    <div class="col-sm-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
 
-        <h1>Lista de contenidos</h1>
+    <div class="row">
+        <center><h1>Lista de archivos</h1></center>
+        {% paginate 8 contents %}
         {% for content in contents %}
+            {% if forloop.counter0|divisibleby:"4" %}
+                </div>
+                <div class="row">
+            {% endif %}
+            <div class="col-sm-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
             <ul class="list-group">
               <li class="list-group-item">
-                <a href="{{ content.get_content_detail_url }}" ><h4>{{ content.campaign }}</h4></a>
+                <img src="{{ content.files.url }}" width="100%" height="20%"></img>
+                <h4>{{ content.files }}</h4>
+                <a href="{% url 'company_media_delete' content.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
               </li>
             </ul>
+            </div>
         {% endfor %}
-        <a href="{% url 'company_media_form' %}" class="btn btn-primary">Agregar contenido</a>
-        <a href="{% url 'companies_list' %}" class="btn btn-danger">Regresar</a>
+    </div>
+    <div class="col-sm-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+        <center>{% show_pages %}</center>
+    </div>
+
+    <div class="col-sm-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+        <a href="{% url 'company_media_form' %}" class="btn btn-primary">Agregar archivo</a>
+        <a href="{% url 'companies_media_options' %}" class="btn btn-danger">Regresar</a>
     </div>
 </div>
 {% endblock content %}

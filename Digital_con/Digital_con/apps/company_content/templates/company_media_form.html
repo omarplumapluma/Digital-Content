@@ -10,18 +10,16 @@
 {% include '../../theme_base/templates/menu.html' %}
 <div class="container">
 	<h1>Agregar Campaña</h1>
-	<form method="POST">
+	<form method="POST" enctype="multipart/form-data">
 	    {% csrf_token %}
-	        
-        <div class="row">
-		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-		        <p>{% bootstrap_field form.company %}</p>
-		    </div>
-		    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-		        <p>{% bootstrap_field form.files %}</p>
-		    </div>
-		</div>
-		<div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+	    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+	    {% bootstrap_field form.files %}
+	    </div>
+	    <div class="col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" style="display:none;">
+	    {% bootstrap_field form.company %}
+	    </div>
+        
+		<div class="col-sm-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
 	        {% buttons %}
 	            <button type="submit" class="btn btn-primary">Crear</button>
 	            <a href="{% url 'companies_media_list' %}" class="btn btn-danger">Cancelar</a>

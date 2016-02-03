@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+
+{% block title %}
+    <title>Eliminar contenido</title>
+{% endblock title %}
+
+{% block content %}
+{% include '../../theme_base/templates/menu.html' %}
+
+<div class="container">
+	<center><h1>Eliminar contenido</h1></center>
+	<form method="POST">
+	    <div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+	        {% csrf_token %}
+	        <h3>¿Está seguro de eliminar este contenido de la campaña?</h3>
+	        <p>"{{ object.campaing }}"</p>
+	        {% buttons %}
+	            <button type="submit" class="btn btn-primary">Eliminar</button>
+	            <a href="{% url 'company_campaing_list' %}" class="btn btn-danger">Cancelar</a>
+	        {% endbuttons %}
+	    </div>
+	</form>
+</div>
+
+{% endblock content %}

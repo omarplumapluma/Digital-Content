@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+
+{% block title %}
+    <title>Eliminar archivo</title>
+{% endblock title %}
+
+{% block content %}
+{% include '../../theme_base/templates/menu.html' %}
+<div class="container">
+	<center><h1>Eliminar archivo</h1></center>
+	<form method="POST">
+	    <div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+	        {% csrf_token %}
+	        <h3>¿Está seguro de eliminar esta archivo?</h3>
+	        <p>"{{ object.files }}"</p>
+	        {% buttons %}
+	            <button type="submit" class="btn btn-primary">Eliminar</button>
+	            <a href="{% url 'companies_media_list' %}" class="btn btn-danger">Cancelar</a>
+	        {% endbuttons %}
+	    </div>
+	</form>
+</div>
+
+{% endblock content %}

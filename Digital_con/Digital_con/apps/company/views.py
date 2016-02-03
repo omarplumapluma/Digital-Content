@@ -30,21 +30,21 @@ def company_detail(request, pk):
 class CompanyUpdate(UpdateView):
     model = Company
     template_name = 'company_update_form.html'
-    fields = ['name', 'rfc', 'street', 'colony', 'city', 'state']
+    fields = ['name', 'rfc', 'street', 'colony', 'city', 'state', 'user', 'status']
     success_url = reverse_lazy('companies_list')
 
 
 class CompanyDelete(DeleteView):
     model = Company
     template_name = 'company_delete_form.html'
-    fields = ['name', 'rfc', 'street', 'colony', 'city', 'state']
+    fields = ['name', 'rfc', 'street', 'colony', 'city', 'state', 'user', 'status']
     success_url = reverse_lazy('companies_list')
 
 
 class CompanyForm(CreateView):
     template_name = 'company_form.html'
     model = Company
-    fields = ['name', 'rfc', 'street', 'colony', 'city', 'state']
+    fields = ['name', 'rfc', 'street', 'colony', 'city', 'state', 'user', 'status']
     success_url = reverse_lazy('companies_list')
 
     def get_initial(self):

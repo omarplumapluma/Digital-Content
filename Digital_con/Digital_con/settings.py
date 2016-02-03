@@ -35,7 +35,7 @@ ALLOWED_HOSTS = []
 
 DATE_INPUT_FORMATS = ('%d/%m/%Y')
 
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, "site_media", "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = "/site_media/media/"
 
@@ -52,14 +52,13 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'bootstrap3',
     'crispy_forms',
-     # FeinCMS:
-    #'feincms',
-    #'feincms.module.page',
-    #'feincms.module.medialibrary',
+    # Pagination:
+    'endless_pagination',
     #'adzone',
     #DateTime
-    'datetimewidget',
-
+    #'datetimewidget',
+    #Modal
+    'django_modalview',
     #Apps
     'Digital_con.apps.theme_base',
     'Digital_con.apps.company',
@@ -83,7 +82,7 @@ ROOT_URLCONF = 'Digital_con.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(os.path.dirname(__file__), 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'Digital_con', 'apps', 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -95,6 +94,8 @@ TEMPLATES = [
                 'django.core.context_processors.media',
                 'django.core.context_processors.static',
                 'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.tz',
                 #'adzone.context_processors.get_source_ip',
             ],
         },

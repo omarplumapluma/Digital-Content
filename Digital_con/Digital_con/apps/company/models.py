@@ -15,7 +15,7 @@ class Company(models.Model):
     colony = models.CharField(verbose_name="Colonia", max_length=60, null=False)
     city = models.CharField(verbose_name="Ciudad", max_length=30, null=False)
     state = models.CharField(verbose_name="Estado", max_length=30, null=False)
-    user = models.ForeignKey(User, null=True)
+    user = models.ForeignKey(User)
 
     class Meta:
         ordering = ['name']
