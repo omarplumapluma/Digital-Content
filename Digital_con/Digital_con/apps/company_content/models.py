@@ -54,6 +54,7 @@ class Company_media(models.Model):
     def __unicode__(self):
         return unicode(self.files)
 
+
 @receiver(models.signals.post_delete, sender=Company_media)
 def auto_delete_file_on_delete(sender, instance, **kwargs):
     """Deletes file from filesystem

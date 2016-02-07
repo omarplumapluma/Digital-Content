@@ -22,7 +22,11 @@
             <div class="col-sm-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
             <ul class="list-group">
               <li class="list-group-item">
-                <img src="{{ content.files.url }}" width="100%" height="20%"></img>
+                {% if content.files.url|last == "g" %}
+                    <a href="{{ content.files.url }}"><img src="{{ content.files.url }}" width="100%" height="20%"></img></a>
+                {% else %}
+                    <a href="{{ content.files.url }}"><video src="{{ content.files.url }}" width="100%" height="20%"></video></a>
+                {% endif %}
                 <h4>{{ content.files }}</h4>
                 <a href="{% url 'company_media_delete' content.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
               </li>

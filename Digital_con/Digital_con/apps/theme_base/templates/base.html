@@ -16,6 +16,7 @@
       <link id="css-preset" href="{% static 'css/presets/preset1.css' %}" rel="stylesheet">
       <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
       <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+
     {% block title %}
         <title>Contenido digital</title>
     {% endblock title %}
@@ -52,7 +53,7 @@
     <script type="text/javascript" src="{% static 'js/jquery.countTo.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/lightbox.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
-
+    {{ form.media }}
   {% endblock javascript %}
 
 </body>

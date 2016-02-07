@@ -56,9 +56,9 @@ INSTALLED_APPS = (
     'endless_pagination',
     #'adzone',
     #DateTime
-    #'datetimewidget',
+    'bootstrap3_datetime',
     #Modal
-    'django_modalview',
+    #'django_modalview',
     #Apps
     'Digital_con.apps.theme_base',
     'Digital_con.apps.company',

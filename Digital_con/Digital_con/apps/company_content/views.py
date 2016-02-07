@@ -6,8 +6,6 @@ from django.views.generic import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from .models import Company_content, Company_media, Campaing_media
 from .forms import CampaingForm, CompanyContentForm
-from django_modalview.generic.edit import ModalCreateView
-from django_modalview.generic.component import ModalResponse
 from Digital_con.apps.company.models import Company
 from django.shortcuts import render_to_response, redirect
 from django.template.context import RequestContext
@@ -16,7 +14,9 @@ from django.template.context import RequestContext
 @login_required
 def company_content_listing(request):
     """ All companies. """
-    contents = Company_content.objects.all()
+    user = request.user
+    company = Company.objects.filter(user_id=user.id)
+    contents = Company_content.objects.filter(company=company[0].pk)
     var_get_search = request.GET.get('search_box')
     if var_get_search is not None:
         contents = contents.filter(campaign__icontains=var_get_search)
@@ -74,7 +74,7 @@ def company_campaing_detail(request, pk):
 class CompanyContentUpdate(UpdateView):
     model = Company_content
     template_name = 'company_content_update_form.html'
-    fields = ['company', 'campaign', 'description', 'start_date', 'end_date', 'marquee', 'status']
+    form_class = CompanyContentForm
     success_url = reverse_lazy('companies_content_list')
 
 
@@ -149,9 +149,12 @@ def Create_campaing_content(request):
         user = request.user
         company = Company.objects.filter(user_id=user.id)
         contents = Company_media.objects.filter(company=company[0].pk)
+        capaings = Company_content.objects.filter(company=company[0].pk)
+
         if company:
             initial_data = {'company': company[0],}
         form = CampaingForm(initial=initial_data)
+        form.fields["campaing"].queryset = Company_content.objects.filter(company=company[0].pk)
     data = {
         'form': form,
         'contents': contents,

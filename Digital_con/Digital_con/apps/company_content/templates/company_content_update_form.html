@@ -8,6 +8,8 @@
 
 {% block content %}
 {% include '../../theme_base/templates/menu.html' %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <div class="container">
 	<h1>Editar campaña</h1>
 	<form method="POST">
@@ -43,7 +45,7 @@
 		<div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
 	        {% buttons %}
 	            <button type="submit" class="btn btn-primary">Actualizar</button>
-	            <a href="{% url 'companies_list' %}" class="btn btn-danger">Cancelar</a>
+	            <a href="{% url 'companies_content_list' %}" class="btn btn-danger">Cancelar</a>
 	        {% endbuttons %}
 	    </div>
 	</form>
